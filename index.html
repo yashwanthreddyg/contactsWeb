@@ -2,13 +2,10 @@
 <html ng-app="ContactsExplorer">
 	<head>
         <meta charset="utf-8" />
+        <link type="text/css" rel="stylesheet" href="css/bootstrap.css"></link>
 	</head>
 	<body ng-controller="MainController as main">
-		<h1>Hello! Welcome@</h1>
-		<a ng-href="#/add">ADD</a>|
-		<a ng-href="#/details/1">DETAILS</a>|
-		<a ng-href="#/edit/1">EDIT</a>|
-		<a ng-href="#/">ALL</a>|
+		<h1>Hello! Welcome</h1>
 		<div class="content-wrapper" ng-view>
 
 		</div>
@@ -21,6 +18,8 @@
     	<script type="text/javascript" src="js/controllers/EditController.js"></script>
     	<script type="text/javascript" src="js/controllers/AddController.js"></script>
     	<script type="text/javascript" src="js/controllers/DetailsController.js"></script>
+    	<script type="text/javascript" src="js/controllers/LoadingController.js"></script>
     	<script type="text/javascript" src="js/routes.js"></script>	
+    	<script type="text/javascript" src="js/directives.js"></script>	
     </body>
 </html>

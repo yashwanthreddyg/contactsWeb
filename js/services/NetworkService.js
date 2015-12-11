@@ -13,7 +13,12 @@ angular.module('ContactsExplorer')
 		};
 
 		//fetches the access_token for that session
-		factory.refreshToken = function(){
+		factory.refreshToken = function(successCallback,failureCallback){
+            if(factory.hasToken)
+            {
+                successCallback();
+                return;
+            }
             $http({
                 method: 'POST',
                 url: 'https://login.salesforce.com/services/oauth2/token',
@@ -30,8 +35,10 @@ angular.module('ContactsExplorer')
             	factory.hasToken = true;
             	factory.token=response.data.access_token;
             	console.log("Successful in getting access_token: "+response.data.access_token);
+                successCallback();
             },
             function(response){
+                failureCallback();
             	console.log("Error getting token");
             });
         };
@@ -116,6 +123,6 @@ angular.module('ContactsExplorer')
             }).then(successCallback,failureCallback);
 		}
 
-		factory.refreshToken();
+		//factory.refreshToken();
 		return factory;
 	});

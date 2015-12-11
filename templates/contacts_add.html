@@ -1,3 +1,37 @@
-<h1>
-	CONTACTS_ADD.HTML
-</h1>
+	<button go-click="/">HOME</button>
+	<div>
+	<form name="addForm" ng-submit="addForm.$valid && adder.addContact()" novalidate>
+		<table>
+			<tr>
+				<th>Key</th><th>Value</th>
+			</tr>
+			<tr>
+				<td>FirstName</td>
+				<td>
+					<input name="firstname" type="text" ng-model="adder.contact.FirstName" required></input>
+  					<span style="color:red" ng-show="addForm.firstname.$error.required">*required.</span>
+				</td>
+			</tr>
+			<tr>
+				<td>LastName</td>
+				<td>
+					<input name="lastname" type="text" ng-model="adder.contact.LastName" required></input>
+  					<span style="color:red" ng-show="addForm.lastname.$error.required">*required.</span>
+				</td>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td>
+					<input name="email" ng-model="adder.contact.Email" type="email" required></input>
+  						<span style="color:red" ng-show="addForm.email.$error.required">*required.</span>
+  						<span style="color:red" ng-show="addForm.email.$error.email">Invalid email address.</span>
+  				</td>
+			</tr>
+			<tr>
+				<td>Phone</td>
+				<td><input type="text" ng-model="adder.contact.Phone"></input></td>
+			</tr>
+		</table>
+		<input type="submit" value="ADD"></button>
+	</form>
+	</div>

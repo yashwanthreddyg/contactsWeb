@@ -1,16 +1,12 @@
-<h1>
-CONTACT_DETAILS.html
-</h1>
 <div>
 	<h3>Details</h3>
-		<a ng-href="#/edit/{{details.FullContact.Id}}"></a>
-		<a ng-click="details.deleteContact()">DELETE</a>
-	</a>|
+		<button go-click="/edit/{{details.FullContact.Id}}">EDIT</button>
+		<button ng-click="details.deleteContact()" >DELETE</button>
 	
-	<a ng-href="#/">ALL</a>
+	<button go-click="/all">HOME</button>
 	<table>
 		<tr>
-			<th>Key</th><th>-</th><th>Value</th>
+			<th>Key</th><th>Value</th>
 		</tr>
 		<tr>
 			<td>FirstName:</td><td>{{details.FullContact.FirstName}}</td>

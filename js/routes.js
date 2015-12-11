@@ -2,7 +2,7 @@ var thisApp = angular.module('ContactsExplorer');
 angular.module('ContactsExplorer')
 	.config(function($routeProvider){
 		console.log("Configuring routes");
-		$routeProvider.when('/',{
+		$routeProvider.when('/all',{
 			templateUrl: "./templates/contacts_all.html",
 			controller: "ContactsController",
 			controllerAs: "contacts"
@@ -21,6 +21,11 @@ angular.module('ContactsExplorer')
 			templateUrl: "./templates/contacts_add.html",
 			controller: "AddController",
 			controllerAs: "adder"
+		})
+		.when('/',{
+			templateUrl: "./templates/contacts_loading.html",
+			controller: "LoadingController",
+			controllerAs: "loader"
 		})
 		.otherwise({
 			redirectTo:'/'

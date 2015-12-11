@@ -1,5 +1,6 @@
-<h1>CONTACTS_EDIT.HTMLv2</h1>
+<button go-click="/all">HOME</button>
 <div>
+	<form name="editform" ng-submit="editform.$valid && editor.updateContact()" novalidate>
 	<table>
 		<tr>
 			<th>Key</th><th>Value</th>
@@ -7,19 +8,23 @@
 		<tr>
 			<th>FirstName</th>
 			<th>
-				<input type="text" ng-model="editor.FullContact.FirstName"></input>
+				<input name="firstname" type="text" ng-model="editor.FullContact.FirstName" required></input>
+  				<span style="color:red" ng-show="editor.firstname.$error.required">*required.</span>
 			</th>
 		</tr>
 		<tr>
 			<th>LastName</th>
 			<th>
-				<input type="text" ng-model="editor.FullContact.LastName"></input>
+				<input name="lastname" type="text" ng-model="editor.FullContact.LastName" required></input>
+  				<span style="color:red" ng-show="editor.lastname.$error.required">*required.</span>
 			</th>
 		</tr>
 		<tr>
 			<th>Email</th>
 			<th>
-				<input type="text" ng-model="editor.FullContact.Email"></input>
+				<input name="email" type="email" ng-model="editor.FullContact.Email"></input>
+  						<span style="color:red" ng-show="editor.email.$error.required">*required.</span>
+  						<span style="color:red" ng-show="editform.email.$error.email">Invalid email address.</span>
 			</th>
 		</tr>
 		<tr>
@@ -30,6 +35,6 @@
 		</tr>
 	</table>
 	<br />
-	<button ng-click="editor.updateContact()">Save</button>|
-	<button ng-click="editor.goHome()">Home</button>
+	<input type="submit" value="UPDATE"></form>
+	</form>
 </div>
