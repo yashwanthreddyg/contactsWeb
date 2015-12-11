@@ -1,1 +1,35 @@
-<h1>CONTACTS_EDIT.HTML</h1>
+<h1>CONTACTS_EDIT.HTMLv2</h1>
+<div>
+	<table>
+		<tr>
+			<th>Key</th><th>Value</th>
+		</tr>
+		<tr>
+			<th>FirstName</th>
+			<th>
+				<input type="text" ng-model="editor.FullContact.FirstName"></input>
+			</th>
+		</tr>
+		<tr>
+			<th>LastName</th>
+			<th>
+				<input type="text" ng-model="editor.FullContact.LastName"></input>
+			</th>
+		</tr>
+		<tr>
+			<th>Email</th>
+			<th>
+				<input type="text" ng-model="editor.FullContact.Email"></input>
+			</th>
+		</tr>
+		<tr>
+			<th>Phone</th>
+			<th>
+				<input type="text" ng-model="editor.FullContact.Phone"></input>
+			</th>
+		</tr>
+	</table>
+	<br />
+	<button ng-click="editor.updateContact()">Save</button>|
+	<button ng-click="editor.goHome()">Home</button>
+</div>

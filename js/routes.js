@@ -9,15 +9,18 @@ angular.module('ContactsExplorer')
 		})
 		.when('/details/:id',{
 			templateUrl: "./templates/contacts_details.html",
-			controller: "DetailsController"
+			controller: "DetailsController",
+			controllerAs: "details"
 		})
 		.when('/edit/:id',{
 			templateUrl: "./templates/contacts_edit.html",
-			controller: "EditController"
+			controller: "EditController",
+			controllerAs: "editor"
 		})
 		.when('/add',{
 			templateUrl: "./templates/contacts_add.html",
-			controller: "AddController"
+			controller: "AddController",
+			controllerAs: "adder"
 		})
 		.otherwise({
 			redirectTo:'/'

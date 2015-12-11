@@ -1,7 +1,7 @@
 angular.module('ContactsExplorer')
 	.factory('NetworkService',function($http){
 		console.log("network service");
-		
+		var v2="v2";
 		var factory={
 			hasToken:false,
 			token: null,
@@ -76,7 +76,46 @@ angular.module('ContactsExplorer')
 		};
 
 		//patches an existing contact
-		factory.updateContact = function()
+		factory.updateContact = function(id,newData,successCallback,failureCallback){
+			$http({
+                method: 'POST',
+                url: "https://ap2.salesforce.com/services/data/v34.0/sobjects/Contact/"+id+"?_HttpMethod=PATCH",
+                headers: {
+                    "Authorization": 'Bearer '+factory.token,
+                    "Content-Type" : "application/json",
+                    "X-HTTP-Method-Override": "PATCH"
+                },
+                data: newData 
+            }).then(function(response){
+            	successCallback(response.data);
+            },failureCallback);
+		}
+
+		//add a new contact to the database
+		factory.addNewContact = function(contact,successCallback,failureCallback){
+			$http({
+                method: 'POST',
+                url: 'https://ap2.salesforce.com/services/data/v34.0/sobjects/Contact/',
+                
+                headers:{
+                    'Content-Type': 'application/json',
+                    "Authorization": 'Bearer '+factory.token,
+                },
+                data: contact
+            }).then(successCallback,failureCallback);
+		}
+
+		//delete an existing contact
+		factory.deleteContact = function(id,successCallback,failureCallback){
+			$http({
+                method: 'DELETE',
+                url: "https://ap2.salesforce.com/services/data/v34.0/sobjects/Contact/"+id,
+                headers: {
+                    Authorization: 'Bearer '+factory.token
+                }
+            }).then(successCallback,failureCallback);
+		}
+
 		factory.refreshToken();
 		return factory;
 	});

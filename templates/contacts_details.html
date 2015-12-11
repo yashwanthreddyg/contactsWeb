@@ -1,3 +1,28 @@
 <h1>
 CONTACT_DETAILS.html
 </h1>
+<div>
+	<h3>Details</h3>
+		<a ng-href="#/edit/{{details.FullContact.Id}}"></a>
+		<a ng-click="details.deleteContact()">DELETE</a>
+	</a>|
+	
+	<a ng-href="#/">ALL</a>
+	<table>
+		<tr>
+			<th>Key</th><th>-</th><th>Value</th>
+		</tr>
+		<tr>
+			<td>FirstName:</td><td>{{details.FullContact.FirstName}}</td>
+		</tr>
+		<tr>
+			<td>LastName:</td><td>{{details.FullContact.LastName}}</td>
+		</tr>
+		<tr>
+			<td>Email:</td><td>{{details.FullContact.Email}}</td>
+		</tr>
+		<tr>
+			<td>Phone:</td><td>{{details.FullContact.Phone}}</td>
+		</tr>
+	</table>
+</div>
