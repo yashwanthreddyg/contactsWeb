@@ -1,2 +1,0 @@
-describe("sample test",function(){
-});
